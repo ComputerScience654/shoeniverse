@@ -31,7 +31,7 @@
 ## เทคโนโลยีที่ใช้
 
 ### Frontend
-- HTML, CSS, JavaScript
+- PHP, HTML, CSS, JavaScript
 
 ### Backend
 - Node.js (Express.js)
