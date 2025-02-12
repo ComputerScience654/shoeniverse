@@ -68,7 +68,7 @@
     <!-- Header Section -->
     <div class="container text-center mt-5">
         <h1>
-            <img src="img/logo.png" alt="Logo" class="logo"> <!-- Add your logo here -->
+            <!--<img src="img/logo.png" alt="Logo" class="logo">  Add your logo here -->
             SHOENIVERSE
         </h1>
     </div>
@@ -98,8 +98,8 @@
                 <div class="card h-100 text-center">
                     <img src="img/<?= $row['image'] ?>" class="card-img-top" alt="<?= $row['pro_name'] ?>">
                     <div class="card-body">
-                        <h5 class="card-title text-success"><?= $row['pro_name'] ?></h5>
-                        <p class="card-text price text-danger">฿<?= number_format($row['price'], 2) ?></p>
+                        <h5 class="card-title text-dark"><?= $row['pro_name'] ?></h5>
+                        <p class="card-text price text-dark">฿<?= number_format($row['price'], 2) ?></p>
                     </div>
                     <div class="card-footer">
                         <a href="sh_product_detail.php?id=<?= $row['pro_id'] ?>" class="btn btn-outline-dark w-100">รายละเอียด</a>

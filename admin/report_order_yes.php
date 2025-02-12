@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>report</title>
+        <title>Dashboard - SB Admin</title>
 
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
@@ -26,31 +26,13 @@
                         <div class="card mb-4 mt-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                แสดงข้อมูลการสั่งซื้อสินค้า (ยังไม่ได้ชำระเงิน)
+                                แสดงข้อมูลการสั่งซื้อสินค้า (ชำระเงินแล้ว)
                                 
                             <div>
                                 <br>
                             <a href="report_order_yes.php"><button type="button" class="btn btn-outline-success">ชำระเงินแล้ว</button> </a>
                             <a href="report_order.php"><button type="button" class="btn btn-outline-success">ยังไม่ชำระเงิน</button> </a>
                             <a href="report_order_no.php"><button type="button" class="btn btn-outline-success">ยกเลิกใบสั่งซื้อ</button>  </a>
-                            </div>
-                            <br>
-                            <div>
-<form name="form1" method="POST" action="report_order.php" > 
-<div class="row">
-    <div class="col-sm-2">
-      <input type="date" name="dt1" class="form-control">
-    </div>
-    <div class="col-sm-2">
-    <input type="date" name="dt2" class="form-control">
-    </div>
-    <div class="col-sm-4">
-    <button type="หีิทระ" class="btn btn btn-primary"><i class="fas fa-search"></i> </button>
-    </div>
-</div>
-
-</form>
-
                             </div>
 
                             </div>
@@ -65,9 +47,7 @@
                                             <th>ราคารวมสุทธิ</th>
                                             <th>วันที่สั่งซื้อ</th>
                                             <th>สถานะการสั่งซื้อ</th>
-                                            <th>รายละเอียด</th>
-                                            <th>ปรับสถานะการชำระเงิน</th>
-                                            <th>ยกเลิกการสั่งซื้อ</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -80,19 +60,7 @@
                                     </tfoot>
                                     <tbody>
 <?php 
-$ddt1=@$_POST['dt1'];
-$ddt2=@$_POST['dt2'];
-$add_date= date('Y/m/d', strtotime($ddt2 . "+1 days"));
-
-if(($ddt1 != "") & ($ddt2 != "")){
-    echo "ค้นหาจากวันที่ $ddt1 ถึง $ddt2  " ;
-    $sql ="select * from tb_order where order_status='1' and reg_date BETWEEN '$ddt1' and '$add_date'
-    order by reg_date DESC";
-}else{
-    $sql ="select * from tb_order where order_status='1' order by reg_date DESC";
-}
-
-
+$sql ="select * from tb_order where order_status='2' order by reg_date DESC";
 $result=mysqli_query($conn,$sql);
 while($row=mysqli_fetch_array($result)){
 $status = $row['order_status'];
@@ -117,11 +85,7 @@ $status = $row['order_status'];
                                              ?>
 
                                          </td>
-                                        <td><a href="report_order_detail.php?id=<?=$row['orderID']?>"  class="btn btn btn-success" > รายละเอียด</a></td>                                  
-<td><a href="pay_order.php?id=<?=$row['orderID']?>"  class="btn btn btn-warning" onclick="del1(this.href); return false;">ปรับสถานะ</a></td>
-<td><a href="cancel_order.php?id=<?=$row['orderID']?>"  class="btn btn-danger" onclick="del(this.href); return false;">ยกเลิก</a></td>
-                                        
-
+                                         
                                         </tr>
                                     
                                     <?php 
@@ -151,17 +115,4 @@ $status = $row['order_status'];
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
 
-<script>
-function del(mypage){
-    var agree=confirm('คุณต้องการยกเลิกใบสั่งซื้อหรือไม่');
-    if(agree){
-        window.location=mypage;
-    }
-}
-function del1(mypage1){
-    var agree=confirm('คุณต้องการปรับสถานะการชำระเงินหรือไม่');
-    if(agree){
-        window.location=mypageๅ;
-    }
-}
-</script>
+\
