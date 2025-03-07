@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if(!isset($_SESSION["emp_userid"]))
+{
+   header("location:login.php");
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>

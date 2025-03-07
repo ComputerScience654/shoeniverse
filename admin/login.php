@@ -26,21 +26,17 @@ session_start();
             border-radius: 15px;
             box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
             text-align: center;
-            width: 400px;
+            width: 500px;
         }
         .btn-dark {
             width: 100%;
             padding: 12px;
             font-size: 18px;
+            margin-top: 10px;
         }
         .form-control {
             font-size: 18px;
             padding: 10px;
-        }
-        .register-link {
-            display: block;
-            margin-top: 15px;
-            font-size: 16px;
         }
         .input-group-text {
             background: none;
@@ -68,7 +64,8 @@ session_start();
             <?php endif; ?>
             <button type="submit" class="btn btn-dark" name="submit"><i class="fa-solid fa-sign-in-alt"></i> Login</button>
         </form>
-        <a href="register.php" class="register-link"><i class="fa-solid fa-user-plus"></i> Don't have an account? Register here</a>
+        <br>
+        
     </div>
 </body>
 </html>

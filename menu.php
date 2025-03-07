@@ -27,13 +27,16 @@
           <a class="nav-link disabled">0809902729</a>
         </li>
         <li class="nav-item">
+          <a href="admin/index.php" class="nav-link "></a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="login.php">สมัครสมาชิก/เข้าสู่ระบบ</a>
         </li>
       </ul>
 
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="btn btn-outline-dark" type="submit">Search</button>
       </form>
     </div>
   </div>

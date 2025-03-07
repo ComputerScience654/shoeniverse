@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if(!isset($_SESSION["emp_userid"]))
+{
+   header("location:login.php");
+
+}
+?>
+
 <?php include 'condb.php';  ?>
 
 <!DOCTYPE html>
@@ -24,7 +34,7 @@
 
                         
                         <div class="card mb-4 mt-4">
-                            <div class="card-header">
+                            <div class="card-header alert">
                                 <i class="fas fa-table me-1"></i>
                                 แสดงข้อมูลการสั่งซื้อสินค้า (ยังไม่ได้ชำระเงิน)
                                 
